@@ -1,0 +1,17 @@
+CREATE TABLE payments (
+  id BIGINT AUTO_INCREMENT PRIMARY KEY,
+  order_id BIGINT NOT NULL,
+  payment_provider VARCHAR(100) NOT NULL,
+  provider_payment_id VARCHAR(255) NOT NULL,
+  amount DECIMAL(12,2) NOT NULL,
+  currency VARCHAR(10) NOT NULL,
+  status VARCHAR(50) NOT NULL,
+  payment_method VARCHAR(100),
+  receipt_url VARCHAR(512),
+  initiated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  completed_at TIMESTAMP,
+  is_refunded BOOLEAN NOT NULL DEFAULT false,
+  refund_reason VARCHAR(512),
+  is_deleted BOOLEAN NOT NULL DEFAULT false,
+  updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+);
